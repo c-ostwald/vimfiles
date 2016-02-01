@@ -1,21 +1,14 @@
+" Be true vimmers and ensure nocompatible
+set nocompatible
+
 " Automatic reload of vimrc
 autocmd! bufwritepost vimrc source %
 
-" Pathogen load
+" Turned on later necessary for some plugins
 filetype off
-"" call pathogen#infect()
-"" call pathogen#helptags()
 " set the runtime path to include Vundle and initialize
 set rtp+=$HOME/vimfiles/bundle/Vundle.vim
 call vundle#begin('$USERPROFILE/vimfiles/bundle/')
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
@@ -45,6 +38,8 @@ Plugin 'SirVer/ultisnips'
 " ColorSchemes
 Plugin 'sickill/vim-monokai'
 Plugin 'tomasr/molokai'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
 
@@ -91,10 +86,10 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Open Outline (Taglist)
-map <Leader>o <esc>:TlistToggle<CR>
+map <silent><Leader>o <esc>:TlistToggle<CR>
 
 " Open NERDTree
-map <Leader>t <esc>:NERDTreeToggle<CR>
+map <silent><Leader>p <esc>:NERDTreeToggle<CR>
 
 " folding
 set nofoldenable
@@ -105,17 +100,29 @@ nnoremap <Leader>F zA
 vmap Q gq
 nmap Q gqap
 
+" PyTest shortcuts
+" Execute the tests
+nmap <silent><Leader>tf <Esc>:Pytest file<CR>
+nmap <silent><Leader>tc <Esc>:Pytest class<CR>
+nmap <silent><Leader>tm <Esc>:Pytest method<CR>
+nmap <silent><Leader>tp <Esc>:Pytest project<CR>
+" cycle through test errors
+nmap <silent><Leader>tn <Esc>:Pytest next<CR>
+nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
+nmap <silent><Leader>te <Esc>:Pytest error<CR>
+
 " show trailing whitespaces
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Colorscheme
+set background=dark
 " colorscheme desert
 " colorscheme slate
 " colorscheme slate
 " colorscheme monokai
 colorscheme molokai
-set background=dark
+" colorscheme solarized
 
 " Language Support
 filetype indent plugin on
@@ -123,9 +130,13 @@ syntax on
 
 " Window size
 " Use ~x on an English Windows version or ~n for French.
-au GUIEnter * simalt ~x
+autocmd GUIEnter * simalt ~x
 set columns=80
 set lines=40
+
+" Diable beep and flash
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
 
 " show line numbers
 set number
