@@ -1,5 +1,5 @@
-" Automatic reload of _vimrc
-autocmd! bufwritepost _vimrc source %
+" Automatic reload of vimrc
+autocmd! bufwritepost vimrc source %
 
 " Pathogen load
 filetype off
@@ -22,9 +22,13 @@ Plugin 'VundleVim/Vundle.vim'
 " Open Files with fuzzy search
 Plugin 'kien/ctrlp.vim'
 " Configurable context sensitive Statusline
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim'}
+" Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim'}
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " PluginCollection for python developement
 Plugin 'klen/python-mode'
+" Pytest Plugin
+Plugin 'alfredodeza/pytest.vim'
 " Outine variable and functions
 Plugin 'taglist.vim'
 " Insane git integration
@@ -40,6 +44,7 @@ Plugin 'SirVer/ultisnips'
 
 " ColorSchemes
 Plugin 'sickill/vim-monokai'
+Plugin 'tomasr/molokai'
 
 call vundle#end()
 
@@ -105,10 +110,11 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Colorscheme
-" :colorscheme desert
-" :colorscheme slate
-" :colorscheme slate
-colorscheme monokai
+" colorscheme desert
+" colorscheme slate
+" colorscheme slate
+" colorscheme monokai
+colorscheme molokai
 set background=dark
 
 " Language Support
@@ -148,6 +154,10 @@ set noswapfile
 """""""""""""""""
 " Plugin Config "
 """""""""""""""""
+" vim-airline
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+
 " ctrlp (open files with fuzzy search
 " git clone https://github.com/kien/ctrlp.vim
 let g:ctrlp_max_height = 30
