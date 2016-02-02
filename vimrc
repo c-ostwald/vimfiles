@@ -146,6 +146,9 @@ set fo-=t       " Don't automatically wrap text when typing
 set colorcolumn=80
 highlight ColorColumn ctermbg=233 guibg=#434e56
 
+" Needed for statusline to properly show the fancy symbols
+set encoding=utf-8
+set guifont=DejaVu_Sans_Mono_for_Powerline:h14
 
 " useful settings
 set history=700
@@ -188,3 +191,6 @@ let g:pymode_syntax_builtin_funcs = 0
 
 " Open TagList on the right site
 let Tlist_Use_Right_Window = 1
+
+" Fancy status line symbols (needs powerline fonts)
+let g:airline_powerline_fonts = 1

@@ -1,6 +1,3 @@
-" Font
-set guifont=Consolas:h14
-
 " Disable all those menu and toolbars
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
