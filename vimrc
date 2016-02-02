@@ -34,6 +34,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 " Snippets
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " ColorSchemes
 Plugin 'sickill/vim-monokai'
@@ -50,6 +51,9 @@ set showcmd
 
 " make backspace normal
 set bs=2
+
+" allow buffers to be switched if they were modified
+set hidden
 
 """"""""""""""""
 " Key bindings "
@@ -69,9 +73,9 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 
-" easier moving between tabs
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
+" easier moving between buffers
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>n :bn<CR>
 
 " remove highlight from last search
 noremap <C-N> :nohl<CR>
@@ -111,6 +115,15 @@ nmap <silent><Leader>tn <Esc>:Pytest next<CR>
 nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
 nmap <silent><Leader>te <Esc>:Pytest error<CR>
 
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+"""""""""""""""
+" Look & feel "
+"""""""""""""""
 " show trailing whitespaces
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
@@ -170,7 +183,10 @@ set noswapfile
 """""""""""""""""
 " vim-airline
 set laststatus=2
+" show open buffers
 let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " ctrlp (open files with fuzzy search
 " git clone https://github.com/kien/ctrlp.vim
