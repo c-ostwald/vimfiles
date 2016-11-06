@@ -35,6 +35,12 @@ Plugin 'tpope/vim-repeat'
 " Snippets
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+" Clojure support
+Plugin 'guns/vim-clojure-static'
+Plugin 'vim-scripts/paredit.vim'
+Plugin 'tpope/vim-fireplace'
+Plugin 'kien/rainbow_parentheses.vim'
+
 
 " ColorSchemes
 Plugin 'sickill/vim-monokai'
