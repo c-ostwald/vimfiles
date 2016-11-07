@@ -40,6 +40,12 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'tpope/vim-fireplace'
 Plugin 'kien/rainbow_parentheses.vim'
+" HTML 5 support
+Plugin 'othree/html5.vim'
+" JavaScript
+Plugin 'pangloss/vim-javascript'
+Plugin 'ternjs/tern_for_vim'
+
 
 
 " ColorSchemes
@@ -52,6 +58,7 @@ call vundle#end()
 
 " set leader key, increase timeout and show if leader is active
 let mapleader=","
+let maplocalleaer="-"
 set timeout timeoutlen=1500
 set showcmd
 
