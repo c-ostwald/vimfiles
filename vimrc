@@ -40,13 +40,13 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'tpope/vim-fireplace'
 Plugin 'kien/rainbow_parentheses.vim'
+" TeX
+Plugin 'lervag/vimtex'
 " HTML 5 support
 Plugin 'othree/html5.vim'
 " JavaScript
 Plugin 'pangloss/vim-javascript'
 Plugin 'ternjs/tern_for_vim'
-
-
 
 " ColorSchemes
 Plugin 'sickill/vim-monokai'
@@ -232,3 +232,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" Ensure correct tex type detection                                             
+let g:tex_flavor = 'latex'                                                      
+let g:vimtex_complete_close_braces = 1
